@@ -3,35 +3,42 @@ import pygame
 class Ship():
 
     def __init__(self,ai_settings,screen):
-      '''initialize the ship and set its starting position'''
-      self.screen = screen
-      self.ai_settings = ai_settings
+        """Initialize the ship and set its starting position"""
+        self.screen = screen
+        self.ai_settings = ai_settings
 
-      #Ships image and its rectangle
-      self.image = pygame.image.load('images/ship.bmp')
-      self.rect = self.image.get_rect()
-      self.screen_rect = screen.get_rect()
-      #initial position of the ship at the begining of the game
-      #initial position of the ship at the begining of the game
-      self.rect.centerx = self.screen_rect.centerx
-      self.rect.bottom = self.screen_rect.bottom
-      self.center = float(self.rect.centerx)
+        #load the ships image
+        self.image=pygame.image.load('images/ship.bmp')
 
-      #for moving the ship tothe right
-      self.moving_right = False
-      self.moving_left = False
+        #used to access the surface(image) rectangular attributes
+        self.rect=self.image.get_rect()
+
+        #used to obtain the screens rectangular attributes
+        self.screen_rect = screen.get_rect()
+
+        #Start each new ship at the bottom center of the screen
+        #assigns center of ships surface to center of screen surface
+        self.rect.centerx = self.screen_rect.centerx
+        #assigns the bottom y coordinate of the ships surface to the screens bottom y coordinate
+        self.rect.bottom = self.screen_rect.bottom
+
+        #stores a decimal value for the ships center
+        self.center = float(self.rect.centerx)
+
+        #Movement flag
+        self.moving_right = False
+        self.moving_left = False
+
     def update(self):
-      #moves the ship within the described limits
-        if self.moving_right and self.rect.right < self.screen_rect.right:
-            self.center += self.ai_settings.ship_speed_factor
+        """Updates the position of ship when flag is set to true"""
+        if self.moving_right and self.rect.right <self.screen_rect.right:
+            self.center +=self.ai_settings.ship_speed_factor
         if self.moving_left and self.rect.left > 0:
-            self.center -= self.ai_settings.ship_speed_factor
+            self.center -=self.ai_settings.ship_speed_factor
 
-        self.rect.centerx = self.center
-
-
-
+        #updates the rect object from self.center
+        self.rect.centerx =self.center
 
     def blitme(self):
-      #shows ship at its current location
-      self.screen.blit(self.image,self.rect)
+        """Draw the ship at its current location"""
+        self.screen.blit(self.image,self.rect)
