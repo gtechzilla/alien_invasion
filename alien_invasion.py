@@ -5,8 +5,11 @@ from settings import Settings
 
 from ship import Ship
 
+<<<<<<< HEAD
 from alien import Alien
 
+=======
+>>>>>>> a7cbc524b244db6caef9632c11c617e6efb52db1
 import game_functions as gf
 
 def run_game():
@@ -19,6 +22,7 @@ def run_game():
     #makes a ship
     ship = Ship(ai_settings,screen)
 
+<<<<<<< HEAD
     #Make an alien
     alien = Alien(ai_settings,screen)
 
@@ -28,6 +32,10 @@ def run_game():
 
     #Create the fleetof aliens
     gf.create_fleet(ai_settings,screen,aliens)
+=======
+    #Make a group to store bullets in
+    bullets = Group()
+>>>>>>> a7cbc524b244db6caef9632c11c617e6efb52db1
 
     #start the main loop for the game
     while True:
@@ -35,6 +43,10 @@ def run_game():
         ship.update()
         bullets.update()
         gf.update_bullets(bullets)
+<<<<<<< HEAD
         gf.update_screen(ai_settings,screen,ship,aliens,bullets)
+=======
+        gf.update_screen(ai_settings,screen,ship,bullets)
+>>>>>>> a7cbc524b244db6caef9632c11c617e6efb52db1
 
 run_game()
