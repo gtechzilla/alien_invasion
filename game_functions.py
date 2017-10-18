@@ -4,11 +4,10 @@ import pygame
 
 from bullet import Bullet
 
-<<<<<<< HEAD
+
 from alien import Alien
 
-=======
->>>>>>> a7cbc524b244db6caef9632c11c617e6efb52db1
+
 def check_keydown_events(event,ai_settings,screen,ship,bullets):
     """Responds to key presses"""
     if event.key == pygame.K_RIGHT:
@@ -19,11 +18,10 @@ def check_keydown_events(event,ai_settings,screen,ship,bullets):
         ship.moving_left = True
     elif event.key == pygame.K_SPACE:
         fire_bullet(ai_settings,screen,ship,bullets)
-<<<<<<< HEAD
+
     elif event.key == pygame.K_q:
         sys.exit()
-=======
->>>>>>> a7cbc524b244db6caef9632c11c617e6efb52db1
+
 
 def fire_bullet(ai_settings,screen,ship,bullets):
     #creates a bullet and adds it to bullet group
@@ -54,21 +52,19 @@ def check_events(ai_settings,screen,ship,bullets):
             check_keyup_events(event,ship)
 
 
-<<<<<<< HEAD
+
+
 def update_screen(ai_settings,screen,ship,aliens,bullets):
-=======
-def update_screen(ai_settings,screen,ship,bullets):
->>>>>>> a7cbc524b244db6caef9632c11c617e6efb52db1
+
     """Update images on the screen and flip to the new screen"""
     screen.fill(ai_settings.bg_color)
     #Redraw all bullets behind ship and aliens
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     ship.blitme()
-<<<<<<< HEAD
+
     aliens.draw(screen)
-=======
->>>>>>> a7cbc524b244db6caef9632c11c617e6efb52db1
+
 
 
     #Make the most recently drawn screen visible
@@ -80,7 +76,7 @@ def update_bullets(bullets):
     for bullet in bullets.copy():
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
-<<<<<<< HEAD
+
 
 def create_fleet(ai_settings,screen,aliens):
     """Create a full fleet of aliens"""
@@ -100,5 +96,3 @@ def create_fleet(ai_settings,screen,aliens):
         alien.x = alien_width + 2 * alien_width * alien_number
         alien.rect.x = alien.x
         aliens.add(alien)
-=======
->>>>>>> a7cbc524b244db6caef9632c11c617e6efb52db1
